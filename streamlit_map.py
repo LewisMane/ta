@@ -1,25 +1,44 @@
 import streamlit as st
+import streamlit.components.v1 as components
 
 st.set_page_config(page_title="Folium Map", layout="wide")
-st.title("📍 My Folium Map")
-
-st.sidebar.header("Info")
-st.sidebar.markdown("""
-- Tap the locate button to grant location permission.  
-- Geolocation works best when deployed via **HTTPS** (Streamlit Cloud).  
-- All markers, layers, and popups are included.
-""")
+st.title("📍 Zone 83$84 Map")
 
 # -----------------------------
 # Load your pre-generated HTML map
 # -----------------------------
-html_file_path = "zone 83--84 map.html"  # place your Folium HTML in the same folder as this script
+html_file_path = "zone 83--84 map.html"  # place your Folium HTML in the same folder
 
 with open(html_file_path, "r", encoding="utf-8") as f:
     html_content = f.read()
 
-# Render the HTML map directly
-st.components.v1.html(html_content, height=700, scrolling=True)
+# -----------------------------
+# Modify HTML to make map responsive and Locate button prominent
+# -----------------------------
+# 1. Make map container 100% width
+html_content = html_content.replace(
+    '<div class="folium-map"', '<div class="folium-map" style="width:100%;height:100vh;"'
+)
 
-st.markdown("---")
-st.markdown("**Tip:** Deploy to Streamlit Cloud for HTTPS to ensure mobile geolocation works seamlessly.")
+# 2. Optional: enlarge LocateControl button via inline CSS
+enhance_css = """
+<style>
+.leaflet-control-locate {
+    background-color: #2A8FE2 !important;
+    color: white !important;
+    font-weight: bold !important;
+    border-radius: 8px !important;
+    padding: 6px 10px !important;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3) !important;
+}
+.leaflet-control-locate:hover {
+    background-color: #1f6bbf !important;
+}
+</style>
+"""
+html_content = enhance_css + html_content
+
+# -----------------------------
+# Render the HTML map
+# -----------------------------
+components.html(html_content, height=700, scrolling=True)
