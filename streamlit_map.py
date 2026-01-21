@@ -47,6 +47,7 @@ MAPS = {
     "Zone 86, 87 & TT87": MAP_DIR / "zone 86, 87, tt87 map.html",
     "Zone 88, 92 & 93": MAP_DIR / "zone 88, 92, 93 map.html",
     "Zone 90 & 91": MAP_DIR / "zone 90 91 map.html",
+    "Konyu Proposed:" : MAP_DIR / "Konyu proposed.html",
 }
 
 # --------------------------------------------------
