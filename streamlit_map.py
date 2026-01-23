@@ -48,7 +48,7 @@ MAPS = {
     "Zone 88, 92 & 93": MAP_DIR / "zone 88, 92, 93 map.html",
     "Zone 90 & 91": MAP_DIR / "zone 90 91 map.html",
     "Konyu Proposed:" : MAP_DIR / "Konyu proposed.html",
-    "Ihwagi-Gathugu Mains:" MAP_DIR / "ihwagi to gathugu network.html",
+    "Ihwagi-Gathugu Mains" : MAP_DIR / "ihwagi to gathugu network.html",
 }
 
 # --------------------------------------------------
@@ -113,6 +113,7 @@ components.html(
     height=MAP_HEIGHT,
     scrolling=False
 )
+
 
 
 
